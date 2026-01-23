@@ -1,0 +1,429 @@
+{
+    "theme": "one-dark",
+    "$schema": "https://opencode.ai/config.json",
+    "plugin": [
+        "oh-my-opencode",
+        "opencode-antigravity-auth"
+    ],
+    "lsp": {
+    "vue-language-server": {
+      "command": ["C:\\Users\\30528\\AppData\\Local\\pnpm\\vue-language-server.CMD", "--stdio"],
+      "extensions": [".vue"]
+    },
+    "typescript-language-server": {
+      "command": ["C:\\Users\\30528\\AppData\\Local\\pnpm\\typescript-language-server.CMD", "--stdio"],
+      "extensions": [".ts", ".tsx", ".js", ".jsx"]
+    },
+     "pyright": {
+    "command": ["C:\\Users\\30528\\AppData\\Local\\pnpm\\pyright-langserver.CMD", "--stdio"],
+    "extensions": [".py"]
+  }
+  },
+    "permission": {
+        "lsp":"allow",
+        "task": "allow",
+        "background_task": "allow",
+        "bash": {
+            "*": "ask",
+            "git *": "allow",
+            "npm *": "allow",
+            "rm *": "deny",
+            "grep *": "allow"
+        },
+        "Read": "allow",
+        "Write": "allow",
+        "Edit": "allow",
+        "WebFetch": "allow"
+    },
+    "provider": {
+        "google": {
+            "npm": "@ai-sdk/google",
+            "name": "Google",
+            "models": {
+                "antigravity-gemini-3-pro": {
+                    "name": "Gemini 3 Pro (Antigravity)",
+                    "attachment": true,
+                    "limit": {
+                        "context": 1048576,
+                        "output": 65535
+                    },
+                    "modalities": {
+                        "input": [
+                            "text",
+                            "image",
+                            "pdf"
+                        ],
+                        "output": [
+                            "text"
+                        ]
+                    },
+                    "variants": {
+                        "low": {
+                            "thinkingLevel": "low"
+                        },
+                        "high": {
+                            "thinkingLevel": "high"
+                        }
+                    }
+                },
+                "antigravity-gemini-3-flash": {
+                    "name": "Gemini 3 Flash (Antigravity)",
+                    "limit": {
+                        "context": 1048576,
+                        "output": 65536
+                    },
+                    "modalities": {
+                        "input": [
+                            "text",
+                            "image",
+                            "pdf"
+                        ],
+                        "output": [
+                            "text"
+                        ]
+                    },
+                    "variants": {
+                        "minimal": {
+                            "thinkingLevel": "minimal"
+                        },
+                        "low": {
+                            "thinkingLevel": "low"
+                        },
+                        "medium": {
+                            "thinkingLevel": "medium"
+                        },
+                        "high": {
+                            "thinkingLevel": "high"
+                        }
+                    }
+                },
+                "gemini-3-flash-preview": {
+                    "name": "Gemini 3 Flash Preview (Gemini CLI)",
+                    "limit": {
+                        "context": 1048576,
+                        "output": 65536
+                    },
+                    "modalities": {
+                        "input": [
+                            "text",
+                            "image",
+                            "pdf"
+                        ],
+                        "output": [
+                            "text"
+                        ]
+                    }
+                },
+                "gemini-3-pro-preview": {
+                    "name": "Gemini 3 Pro Preview (Gemini CLI)",
+                    "limit": {
+                        "context": 1048576,
+                        "output": 65535
+                    },
+                    "modalities": {
+                        "input": [
+                            "text",
+                            "image",
+                            "pdf"
+                        ],
+                        "output": [
+                            "text"
+                        ]
+                    }
+                }
+            }
+        },
+        "tribiosapi": {
+            "npm": "@ai-sdk/anthropic",
+            "name": "TribiosApi（公益）",
+            "options": {
+                "baseURL": "https://www.tribiosapi.top/v1",
+                "apiKey": "",
+                "modelListUrl": ""
+            },
+            "models": {
+                "claude-sonnet-4-5-20250929": {
+                    "name": "Sonnet 4.5（公益）",
+                    "attachment": true,
+                    "limit": {
+                        "context": 200000,
+                        "output": 65535
+                    },
+                    "modalities": {
+                        "input": [
+                            "text",
+                            "image"
+                        ],
+                        "output": [
+                            "text"
+                        ]
+                    }
+                }
+            }
+        },
+        "tribiosapicodex": {
+            "npm": "@ai-sdk/openai-compatible",
+            "name": "TribiosApi（公益）",
+            "options": {
+                "baseURL": "https://www.tribiosapi.top/v1",
+                "apiKey": "sk-1BVbZctNeIrhF5TEFKKo1OYbJYFY6hcehkO86z2N1iawSDg4",
+                "modelListUrl": ""
+            },
+            "models": {
+                "gpt-5.2-codex": {
+                    "name": "Codex 5.2 Codex（公益）",
+                    "attachment": false,
+                    "limit": {
+                        "context": 200000,
+                        "output": 65535
+                    },
+                    "modalities": {
+                        "input": [
+                            "text"
+                        ],
+                        "output": [
+                            "text"
+                        ]
+                    }
+                }
+            }
+        },
+        "tribiosapipro": {
+            "npm": "@ai-sdk/anthropic",
+            "name": "TribiosApiPro",
+            "options": {
+                "baseURL": "https://paid.tribiosapi.top/v1",
+                "apiKey": "sk-b7pyvx8SYkPOJOKCL7gh8Ztlx4OPNsFgNpD3Q4bH0w78W8Qp"
+            },
+            "models": {
+                "claude-opus-4-5-20251101": {
+                    "name": "Opus 4.5（PRO）",
+                    "limit": {
+                        "context": 200000,
+                        "output": 65535
+                    }
+                },
+
+                "claude-sonnet-4-5-20250929": {
+                    "name": "Sonnet 4.5（PRO）",
+                    "attachment": true,
+                    "limit": {
+                        "context": 200000,
+                        "output": 65535
+                    },
+                    "modalities": {
+                        "input": [
+                            "text",
+                            "image"
+                        ],
+                        "output": [
+                            "text"
+                        ]
+                    }
+                }
+            }
+        },
+        "tribiosapiprocodex": {
+            "npm": "@ai-sdk/openai-compatible",
+            "name": "TribiosApiPro",
+            "options": {
+                "baseURL": "https://paid.tribiosapi.top/v1",
+                "apiKey": "sk-zNzEOf7ZzFu1AEScbfKZpw2PaCa1g8O7VVVP9tv6fzr9QgRA"
+            },
+            "models": {
+                "gpt-5.2-codex": {
+                    "name": "Codex 5.2 Codex（PRO）",
+                    "attachment": false,
+                    "limit": {
+                        "context": 200000,
+                        "output": 65535
+                    },
+                    "modalities": {
+                        "input": [
+                            "text"
+                        ],
+                        "output": [
+                            "text"
+                        ]
+                    }
+                }
+            }
+        },
+        "zhipuai": {
+            "npm": "@ai-sdk/openai-compatible",
+            "name": "ZhiPuAI",
+            "options": {
+                "baseURL": "https://open.bigmodel.cn/api/coding/paas/v4",
+                "apiKey": "1ff287835f8845b0b03c1d95e83dfde5.Z7Ov7wSKAOVNNH6s",
+                "modelListUrl": ""
+            },
+            "models": {
+                "glm-4.7": {
+                    "name": "GLM 4.7（私有）",
+                    "attachment": false,
+                    "limit": {
+                        "context": 200000,
+                        "output": 16000
+                    },
+                    "modalities": {
+                        "input": [
+                            "text"
+                        ],
+                        "output": [
+                            "text"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "mcp": {
+        "chrome-devtools-cmp": {
+            "type": "local",
+            "command": [
+                "npx",
+                "-y",
+                "chrome-devtools-mcp@latest",
+                "--channel=canary",
+                "--headless=true",
+                "--isolated=true"
+            ],
+            "enabled": true
+        },
+        "Playwright": {
+            "type": "local",
+            "command": [
+                "npx",
+                "-y",
+                "@playwright/mcp@latest"
+            ],
+            "enabled": true
+        },
+        "context7": {
+            "type": "local",
+            "command": [
+                "npx",
+                "-y",
+                "@upstash/context7-mcp@latest"
+            ],
+            "enabled": true
+        },
+        "mastergo-magic-mcp": {
+            "type": "local",
+            "command": [
+                "npx",
+                "-y",
+                "@mastergo/magic-mcp",
+                "--token=mg_df90bb3c3d7a4989a1200280dba18d84",
+                "--url=https://mastergo.com"
+            ],
+            "enabled": true
+        },
+        "mcp-deepwiki": {
+            "type": "local",
+            "command": [
+                "npx",
+                "-y",
+                "mcp-deepwiki@latest"
+            ],
+            "enabled": true
+        },
+        "open-websearch": {
+            "type": "local",
+            "command": [
+                "npx",
+                "-y",
+                "open-websearch@latest"
+            ],
+            "environment": {
+                "ALLOWED_SEARCH_ENGINES": "duckduckgo,bing,brave",
+                "DEFAULT_SEARCH_ENGINE": "duckduckgo",
+                "MODE": "stdio"
+            },
+            "enabled": true
+        },
+        "sequential-thinking": {
+            "type": "local",
+            "command": [
+                "npx",
+                "-y",
+                "@modelcontextprotocol/server-sequential-thinking"
+            ],
+            "enabled": true
+        },
+        "web-search-prime": {
+            "type": "remote",
+            "headers": {
+                "Authorization": "Bearer 101f4976cb7346ab9093fadd5ea7fbfc.Om3mxaVlKO6iEN9Y"
+            },
+            "url": "https://open.bigmodel.cn/api/mcp/web_search_prime/mcp",
+            "enabled": true
+        },
+        "zai-mcp-server": {
+            "type": "local",
+            "command": [
+                "npx",
+                "-y",
+                "@z_ai/mcp-server"
+            ],
+            "environment": {
+                "Z_AI_API_KEY": "101f4976cb7346ab9093fadd5ea7fbfc.Om3mxaVlKO6iEN9Y",
+                "Z_AI_MODE": "ZHIPU"
+            },
+            "enabled": true
+        },
+        "zread": {
+            "type": "remote",
+            "url": "https://open.bigmodel.cn/api/mcp/zread/mcp",
+            "headers": {
+                "Authorization": "Bearer 101f4976cb7346ab9093fadd5ea7fbfc.Om3mxaVlKO6iEN9Y"
+            }
+        }
+    },
+    "agent": {
+        "build": {
+            "mode": "primary",
+            "description": "默认主Agent，拥有所有工具权限，用于开发工作",
+            "tools": {
+                "write": true,
+                "edit": true,
+                "bash": true
+            }
+        },
+        "plan": {
+            "mode": "primary",
+            "description": "规划分析Agent，限制写入权限，用于代码分析和规划",
+            "permission": {
+                "edit": "ask",
+                "bash": "ask"
+            }
+        },
+        "general": {
+            "mode": "subagent",
+            "description": "通用子Agent，用于研究复杂问题和执行多步骤任务"
+        },
+        "explore": {
+            "mode": "subagent",
+            "description": "快速探索Agent，用于代码库搜索和模式发现"
+        },
+        "code-reviewer": {
+            "mode": "subagent",
+            "description": "代码审查Agent，只读权限，专注于代码质量分析",
+            "tools": {
+                "write": false,
+                "edit": false
+            }
+        },
+        "docs-writer": {
+            "mode": "subagent",
+            "description": "文档编写Agent，专注于技术文档创作",
+            "tools": {
+                "bash": false
+            }
+        }
+    },
+    "compaction": {
+        "auto": true,
+        "prune": true
+    }
+}
